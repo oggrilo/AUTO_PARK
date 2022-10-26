@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"><!--Bootstrap-->
+    <link rel='stylesheet' type='text/css' href="{{url_for('static', filename='css/style.css')}}"/> <!--CSS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"> 
+    </script>
+    <title>{{titulo}}</title>
+</head>
+<body>
+<<<<<<< HEAD
+          <nav class="navbar">
+            <div class="container-fluid">
+              <!--img logo-->
+              <a class="navbar-brand" href="index.html">
+                <img src="static/imgs/bootstrap-logo.svg" href="index.html"  class="rounded-circle" alt="Bootstrap" >
+              </a>
+              <!--Button sorteio-->
+                <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="#" type="button">Sorteio</button>
+              <!--dropdown de cadastro e etc-->
+              <div class="dropdown-center">
+                <button type="button" class="btn btn-primary dropdown-toggle " type="button" data-bs-toggle="dropdown" href="#">
+                  Cadastro
+                </button>
+                <ul class="dropdown-menu dropdown-menu">
+                  <li><a class="dropdown-item " href="cadastrarFunc.html">Cadastrar</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item " href="#">Consultar</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item " href="#">Atualizar</a></li>
+                </ul>
+              </div>
+            </div>
+        </nav>       
+=======
+          <!--começo navbar-->
+    <nav class="navbar">
+      <div class="container-fluid">
+        <!--img logo-->
+        <a class="navbar-brand" href="/">
+          <img src="static/imgs/bootstrap-logo.svg" class="rounded-circle" alt="Bootstrap" >
+        </a>
+        <!--Button sorteio-->
+          <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="#" type="button">Sorteio</button>
+        <!--dropdown de cadastro e etc-->
+        <div class="dropdown-center">
+          <button type="button" class="btn btn-primary dropdown-toggle " type="button" data-bs-toggle="dropdown" href="#">
+            Login
+          </button>
+          <ul class="dropdown-menu dropdown-menu">
+            <li><a class="dropdown-item " href="login.html">Login</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item " href="cadastrarFunc.html">Cadastrar</a></li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+>>>>>>> b81e3fd (comit diego)
+
+<div class="container-xl"><!--100% wide until extra large breakpoint-->
+
+    <br><br>
+    <p  class="text-center fw-bold text-uppercase" >Cadastro Gerente</p>
+    <form action="/cadastrarFunc.html" method="POST" class="row g-3">
+      <!-- label de nome -->
+      <div class="col-md-6">
+        <label id="nomeFunc" name="nomeFunc" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="nome" name="coletarNome" placeholder="Julio Fonseca">
+      </div>
+      <!-- label de cpf -->
+      <div class="col-md-6">
+        <label id="cpfFunc" name="cpfFunc" class="form-label">CPF:</label>
+        <input type="text" class="form-control" id="cpf" name="coletarCpf" placeholder="000.000.000-00">
+      </div>
+      <!-- label de telefone -->
+      <div class="col-md-6">
+        <label id="celularFunc" name="celularFunc" class="form-label">Telefone:</label>
+        <input type="text" class="form-control" id="celular" name="coletarCelular" placeholder="(00)00000-0000">
+      </div>
+      <!-- label de salário -->
+      <div class="col-md-6">
+        <label id="salarioFunc"  name="salarioFunc" class="form-label">Email:</label>
+        <input type="text" class="form-control" id="email" name="coletarEmail" placeholder="abc@hotmail.com">
+      </div>
+      <!-- label de senha -->
+      <div class="col-md-6">
+        <label id="senhaFunc" name="senhaFunc" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" name="coletarSenha" placeholder="abc123@">
+      </div>
+      <div></div>
+
+      <div class="d-grid gap-2 col-6 mx-auto">
+
+        <button style="background-color:#b9e2ff; color: white;" type="submit" id="buttonCadastrar" class="btn btn-primary">Cadastrar</button>
+      </div>
+    </form>
+</div>
+<br><br><br><br><br>
+
+<<<<<<< HEAD
+<div class="fixed-bottom card text-center">
+=======
+<div class="text-center">
+>>>>>>> b81e3fd (comit diego)
+  <footer style="background-color: #b9e2ff; text-decoration-color: black;" class="card-body">
+    <h5 class="card-title"> Auto Park<br></h5>
+    <p style="background-color: #b9e2ff; text-decoration-color: black;" class="card-text"></p>
+    <a href="www.facebook.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/facebook.png')}}" style="width: 50px;"></a>
+    <a href="www.instagram.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/instagram.png')}}"style="width: 50px;"></a>
+    <a href="https://www.twitter.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/twitter.png')}}"style="width: 50px;"></a>
+    <a style="padding: 50px;"><img src="{{url_for('static', filename='imgs/whatsapp.png')}}"style="width: 50px;"></a>
+    <a href="mailto:contato.autopark@hotmail.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/gmail.png')}}"style="width: 50px;"></a>
+     <h6><br><br>Todos os direitos reservados © 2022<hr></h6>
+  </footer>
+  </div>  
+</body>
+</html>
