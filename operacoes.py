@@ -31,32 +31,30 @@ def cpf_validate(numbers):
             return False
     return True
 
-def inserir(cpf, nome,  celular, email, senha):
+def cadastrarGerente(nome, cpfGerente, telefone, email, senha):
     try:
-        sql = "insert into gerente(cpf, nome, celular, email, senha) values('{}','{}','{}','{}','{}')".format(cpf, nome, celular, email, senha)
+        sql = "insert into gerente(nome, cpfGerente, telefone, email, senha) values('{}','{}','{}','{}','{}')".format(nome, cpfGerente, telefone, email, senha)
         con.execute(sql)#Prepara o comando para ser executado
         db_connection.commit()#Executa o comando no banco de dados
-        return con.rowcount, "Inserido!"
+        return con.rowcount, "Cadastrado com sucesso!"
     except Exception as erro:
         return erro
-def loginGerente(cpf,senha):
-    try:
-        sql = "select * from funcionario where cpf = '{}' and senha = '{}'".format(cpf, senha)
-        con.execute(sql)
 
-        for (cpf, nome, email, celular, senha) in con:
-            print(cpf, senha)
-        print('Logado como Gerente!!!\n')
-        return ()
+def trocarSenha(cpfGerente, senhaGerente):
+    try:
+        sql = "update gerente set senhaFunc = '{}' where cpfGerente = '{}'".format(cpfGerente, senhaGerente)
+        con.execute(sql)
+        db_connection.commit()
+        print(con.rowcount, "Senha Atualizada com sucesso!")
     except Exception as erro:
         print(erro)
 
-def atualizar(cpfGerente, campo, novoDado):
+def atualizarGerente(cpfGerente, campo, novoDado):
     try:
         sql = "update gerente set {} = '{}' where cpfGerente = '{}'".format(campo, novoDado, cpfGerente)
         con.execute(sql)
         db_connection.commit()
-        return "{} Atualizado!".format(con.rowcount)
+        return "Atualizado com sucesso!".format(con.rowcount)
     except Exception as erro:
         return erro
 
@@ -69,7 +67,7 @@ def consultar(cpfGerente):
         this.msg = "Nenhum dado Encontrado!"
         for(cpfGerente, nome, celular, email, senha) in con:
             if int(cpfGerente) == int(cpfGerente):
-                this.msg = "Cpf: {}, Nome: {}, Celular: {}, Email: {}, Senha: {}".format(cpfGerente, nome, celular, email, senha)
+                this.msg = "Cpf: {}, Nome: {}, Telefone: {}, Email: {}, Senha: {}".format(cpfGerente, nome, celular, email, senha)
                 return this.msg
         return this.msg
     except Exception as erro:
