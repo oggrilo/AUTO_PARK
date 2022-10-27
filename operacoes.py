@@ -1,4 +1,8 @@
 from cgitb import html
+from operator import truediv
+from random import random
+from select import select
+from shutil import ExecError
 import email
 import mysql.connector
 import conexao
@@ -33,12 +37,12 @@ def cpf_validate(numbers):
             return False
     return True
 
-def inserir(cpf, nome,  celular, email, senha):
+def cadastrarGerente(nome, cpfGerente, telefone, email, senha):
     try:
-        sql = "insert into gerente(cpf, nome, celular, email, senha) values('{}','{}','{}','{}','{}')".format(cpf, nome, celular, email, senha)
+        sql = "insert into gerente(nome, cpfGerente, telefone, email, senha) values('{}','{}','{}','{}','{}')".format(nome, cpfGerente, telefone, email, senha)
         con.execute(sql)#Prepara o comando para ser executado
         db_connection.commit()#Executa o comando no banco de dados
-        return con.rowcount, "Inserido!"
+        return con.rowcount, "Cadastrado com sucesso!"
     except Exception as erro:
         return erro
 
@@ -56,12 +60,12 @@ def loginGerente(emailDigitado,senhaDigitada):
     except Exception as erro:
         print(erro)
 
-def atualizar(cpfGerente, campo, novoDado):
+def atualizarGerente(cpfGerente, campo, novoDado):
     try:
         sql = "update gerente set {} = '{}' where cpfGerente = '{}'".format(campo, novoDado, cpfGerente)
         con.execute(sql)
         db_connection.commit()
-        return "{} Atualizado!".format(con.rowcount)
+        return "Atualizado com sucesso!".format(con.rowcount)
     except Exception as erro:
         return erro
 
@@ -74,7 +78,7 @@ def consultar(cpfGerente):
         this.msg = "Nenhum dado Encontrado!"
         for(cpfGerente, nome, celular, email, senha) in con:
             if int(cpfGerente) == int(cpfGerente):
-                this.msg = "Cpf: {}, Nome: {}, Celular: {}, Email: {}, Senha: {}".format(cpfGerente, nome, celular, email, senha)
+                this.msg = "Cpf: {}, Nome: {}, Telefone: {}, Email: {}, Senha: {}".format(cpfGerente, nome, celular, email, senha)
                 return this.msg
         return this.msg
     except Exception as erro:
@@ -88,3 +92,4 @@ def deletar(cpfGerente):
         return "{} deletado!".format(con.rowcount)
     except Exception as erro:
         return erro
+

@@ -35,52 +35,48 @@ def pag_atualizarsenha():
 def pag_inicialGerente():
     return render_template('/inicialGerente.html', titulo='Página Principal')
 
-
-
-
 #cadastrar Funcionário
-@pessoa.route('/cadastrarFunc.html', methods=['GET','POST'])
-def cadastrar():
+@pessoa.route('/cadastrarGerente.html', methods=['GET','POST'])
+def cadastrarGerente():
     if request.method == 'POST':
-        this.cpf = request.form['coletarCpf']
         this.nome = request.form['coletarNome']
-        this.celular = request.form['coletarCelular']
+        this.cpfGerente = request.form['coletarCpfGerente']
+        this.telefone = request.form['coletarTelefone']
         this.email = request.form['coletarEmail']
         this.senha = request.form['coletarSenha']
 
-        if operacoes.cpf_validate(this.cpf) == True:
-            this.dados = operacoes.inserir(this.cpf, this.nome, this.celular, this.email, this.senha)
-            return render_template('/cadastrarFunc.html', titulo='Página De Cadastro', resultado=this.dados)
+        if operacoes.cpf_validate(this.cpfGerente) == True:
+            this.dados = operacoes.cadastrarGerente(this.nome, this.cpfGerente, this.telefone, this.email, this.senha)
+            return render_template('/cadastrarGerente.html', titulo='Página De Cadastro', resultado=this.dados)
         else:
             this.dados = "ERRO, favor informe um CPF válido!"
-    return render_template('/cadastrarFunc.html', titulo='Página De Cadastro', resultado=this.dados)
+    return render_template('/cadastrarGerente.html', titulo='Página De Cadastro', resultado=this.dados)
 
-
-@pessoa.route('/atualizarFunc.html', methods=['GET','POST'])
+@pessoa.route('/atualizarGerente.html', methods=['GET','POST'])
 def atualizarDados():
     if request.method == 'POST':
         this.cpf = request.form['tCpf']
         this.campo  = request.form['tCampo']
         this.nDado  = request.form['tNovoDado']
-        this.dados = operacoes.atualizar(this.cpf, this.campo, this.nDado)
-    return render_template('/atualizarFunc.html', titulo='Atualizar', resultado=this.dados)
+        this.dados = operacoes.atualizarGerente(this.cpf, this.campo, this.nDado)
+    return render_template('/atualizarGerente.html', titulo='Atualizar', resultado=this.dados)
 
 
-@pessoa.route('/consultarFunc.html', methods=['GET','POST'])
+@pessoa.route('/consultarGerente.html', methods=['GET','POST'])
 def consultarIndividual():
     if request.method == 'POST':
         this.cpfGerente = request.form['coletarCPF']
         this.mensagem = operacoes.consultar(this.cpfGerente)
     else:
         this.mensagem = ""
-    return render_template('/consultarFunc.html', titulo='Consultar por cpf', dados=this.mensagem)
+    return render_template('/consultarGerente.html', titulo='Consultar por cpf', dados=this.mensagem)
 
-@pessoa.route('/excluirFunc.html', methods=['GET', 'POST'])
+@pessoa.route('/excluirGerente.html', methods=['GET', 'POST'])
 def excluirDados():
     if request.method == 'POST':
         this.cpfGerente = request.form['cpfGerente']
         this.dados = operacoes.deletar(this.cpfGerente)
-    return render_template('/excluirFunc.html', titulo='Excluir', resultado=this.dados)
+    return render_template('/excluirGerente.html', titulo='Excluir', resultado=this.dados)
 
 
 @pessoa.route('/inicialCliente.html', methods=['GET','POST'])
