@@ -10,8 +10,9 @@ pessoa = Flask(__name__) #representando uma variável do tipo flask
 def index():
     return render_template('/index.html', titulo='Página Principal')
 
-
+#login gerente
 @pessoa.route('/login.html', methods=['GET', 'POST'])
+<<<<<<< HEAD
 def pag_login():
     return render_template('/login.html', titulo='Página Principal')
     
@@ -22,6 +23,24 @@ def pag_trocarSenha():
         this.dado  = request.form['novaSenha']
         this.dados = operacoes.trocarSenha(this.cpf, this.dado)
     return render_template('/trocarSenha.html', titulo='Atualizar', resultado=this.dados)
+=======
+def loginGerente():
+    if request.method == 'POST':
+        this.emailGerente = request.form['emailGerente']
+        this.senhaGerente = request.form['senhaGerente']
+        this.msg = operacoes.loginGerente(this.emailGerente, this.senhaGerente)
+        if this.msg == "Aprovado": 
+            return render_template('/inicialGerente.html', titulo='Login Gerente', resultado=this.msg)
+    return render_template('/login.html', titulo='Login Gerente', resultado=this.msg)
+
+@pessoa.route('/cadastroFunc.html', methods=['GET', 'POST'])
+def pag_cadastro():
+    return render_template('/cadastroFunc.html', titulo='Página Principal')
+
+@pessoa.route('/atualizarsenha.html', methods=['GET', 'POST'])
+def pag_atualizarsenha():
+    return render_template('/atualizarsenha.html', titulo='Página Principal')
+>>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 
 
 @pessoa.route('/inicialGerente.html', methods=['GET', 'POST'])
@@ -45,7 +64,12 @@ def cadastrarGerente():
             this.dados = "ERRO, favor informe um CPF válido!"
     return render_template('/cadastrarGerente.html', titulo='Página De Cadastro', resultado=this.dados)
 
+<<<<<<< HEAD
 @pessoa.route('/atualizarGerente.html', methods=['GET','POST'])
+=======
+
+@pessoa.route('/atualizarFunc.html', methods=['GET','POST'])
+>>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 def atualizarDados():
     if request.method == 'POST':
         this.cpf = request.form['tCpf']

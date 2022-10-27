@@ -1,11 +1,16 @@
 from cgitb import html
+<<<<<<< HEAD
 from operator import truediv
 from random import random
 from select import select
 from shutil import ExecError
+=======
+import email
+>>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 import mysql.connector
 import conexao
 import this
+
 
 from main import inicialCliente
 this.msg = ""
@@ -43,6 +48,7 @@ def cadastrarGerente(nome, cpfGerente, telefone, email, senha):
         return con.rowcount, "Cadastrado com sucesso!"
     except Exception as erro:
         return erro
+<<<<<<< HEAD
 
 def trocarSenha(cpfGerente, senhaGerente):
     try:
@@ -50,6 +56,20 @@ def trocarSenha(cpfGerente, senhaGerente):
         con.execute(sql)
         db_connection.commit()
         print(con.rowcount, "Senha Atualizada com sucesso!")
+=======
+
+#login gerente
+def loginGerente(emailDigitado,senhaDigitada):
+    try:
+        sql = "select email, senha from gerente where email = '{}' and senha = '{}'".format(emailDigitado, senhaDigitada)
+        con.execute(sql)
+
+        for (email, senha) in con:
+            if  email == emailDigitado and  senha == senhaDigitada :   
+                return "Aprovado"     
+        else:
+            return "Dados incorretos"
+>>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
     except Exception as erro:
         print(erro)
 

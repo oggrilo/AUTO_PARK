@@ -14,8 +14,8 @@
 </head>
 <body>
 
-<!--começo navbar-->
-<nav class="navbar">
+ <!--começo navbar-->
+ <nav class="navbar">
   <div class="container-fluid">
     <!--img logo-->
     <a class="navbar-brand" href="/">
@@ -25,23 +25,40 @@
       <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="#" type="button">Sorteio</button>
     <!--dropdown de cadastro e etc-->
     <div class="dropdown-center">
-      <button type="button" class="btn btn-primary dropdown-toggle " type="button" data-bs-toggle="dropdown" href="#">
-        Login
-      </button>
-      <ul class="dropdown-menu dropdown-menu">
-        <li><a class="dropdown-item " href="login.html">Login</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item " href="#">Atualizar</a></li>
-      </ul>
+      <div class="btn-group dropstart">
+        <button type="button" style="background-color: #3475E6; border-color:  transparent;  border-radius: 5px"class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropstart</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item " href="inicialCliente.html">Inicial Cliente</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="login.html">Login teste</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="#">Atualizar</a></li>
+          <!-- Dropdown menu links -->
+        </ul>
+        <button type="button" style="background-color: #3475E6; border-color:  transparent;  border-radius: 5px" class="btn btn-secondary">
+          Login
+        </button>
+      </div>
     </div>
   </div>
 </nav>
+<<<<<<< HEAD
 <div class="container">
+=======
+<!--fim da navbar-->
+>>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 
-  <div class="box">
+  <div class="container-sm">
+    <div class="card text-center shadow p-3 mb-5 bg-body rounded" style="width: 40rem; margin-left:23.5%;">
+      
+      <form action="/login.html" method="POST" class="row g-3">
 
-      <form>
+        <div class="card-body">
+          <h5 class="card-title">Login Gerente</h5>
 
+<<<<<<< HEAD
           <div class="mb-3">
           <h5 style="text-align: center;">Login Gerente</h5><br>
           <label for="cpf" class="form-label">CPF</label>
@@ -54,13 +71,36 @@
           </div>
 
           <button type="submit" class="btn btn-primary" style="margin-left: 230px;">Entrar</button>
+=======
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" name="emailGerente" id="floatingInput" placeholder="name@gmail.com">
+              <label for="floatingInput">Insira seu email</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" name="senhaGerente" id="floatingPassword" placeholder="Senha">
+              <label for="floatingPassword">Digite sua senha</label>
+            </div>
+            <br>
+            <br>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+            
+            <h3 class="text-center text-break"> {{ resultado }} </h3>
+
+        </div>
+>>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 
       </form>
+    </div>
+
+
+
 
   </div>
 
-</div>
 
+<<<<<<< HEAD
     <div class="container-fluid">
       <div class="text-center">
         <footer style="background-color: #b9e2ff; text-decoration-color: black;" class="card-body">
@@ -76,6 +116,9 @@
       </div> 
     </div>
 
+=======
+    
+>>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 
 </body>
 </html>
