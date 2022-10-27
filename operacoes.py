@@ -1,7 +1,9 @@
 from cgitb import html
+import email
 import mysql.connector
 import conexao
 import this
+
 
 from main import inicialCliente
 this.msg = ""
@@ -39,15 +41,18 @@ def inserir(cpf, nome,  celular, email, senha):
         return con.rowcount, "Inserido!"
     except Exception as erro:
         return erro
-def loginGerente(cpf,senha):
+
+#login gerente
+def loginGerente(emailDigitado,senhaDigitada):
     try:
-        sql = "select * from funcionario where cpf = '{}' and senha = '{}'".format(cpf, senha)
+        sql = "select email, senha from gerente where email = '{}' and senha = '{}'".format(emailDigitado, senhaDigitada)
         con.execute(sql)
 
-        for (cpf, nome, email, celular, senha) in con:
-            print(cpf, senha)
-        print('Logado como Gerente!!!\n')
-        return ()
+        for (email, senha) in con:
+            if  email == emailDigitado and  senha == senhaDigitada :   
+                return "Aprovado"     
+        else:
+            return "Dados incorretos"
     except Exception as erro:
         print(erro)
 
