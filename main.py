@@ -10,10 +10,16 @@ pessoa = Flask(__name__) #representando uma variável do tipo flask
 def index():
     return render_template('/index.html', titulo='Página Principal')
 
-
+#login gerente
 @pessoa.route('/login.html', methods=['GET', 'POST'])
-def pag_login():
-    return render_template('/login.html', titulo='Página Principal')
+def loginGerente():
+    if request.method == 'POST':
+        this.emailGerente = request.form['emailGerente']
+        this.senhaGerente = request.form['senhaGerente']
+        this.msg = operacoes.loginGerente(this.emailGerente, this.senhaGerente)
+        if this.msg == "Aprovado": 
+            return render_template('/inicialGerente.html', titulo='Login Gerente', resultado=this.msg)
+    return render_template('/login.html', titulo='Login Gerente', resultado=this.msg)
 
 @pessoa.route('/cadastroFunc.html', methods=['GET', 'POST'])
 def pag_cadastro():
@@ -34,23 +40,6 @@ def pag_inicialGerente():
 #cadastrar Funcionário
 @pessoa.route('/cadastrarFunc.html', methods=['GET','POST'])
 def cadastrar():
-    if request.method == 'POST':
-        this.cpf = request.form['coletarCpf']
-        this.nome = request.form['coletarNome']
-        this.celular = request.form['coletarCelular']
-        this.email = request.form['coletarEmail']
-        this.senha = request.form['coletarSenha']
-
-        if operacoes.cpf_validate(this.cpf) == True:
-            this.dados = operacoes.inserir(this.cpf, this.nome, this.celular, this.email, this.senha)
-            return render_template('/cadastrarFunc.html', titulo='Página De Cadastro', resultado=this.dados)
-        else:
-            this.dados = "ERRO, favor informe um CPF válido!"
-    return render_template('/cadastrarFunc.html', titulo='Página De Cadastro', resultado=this.dados)
-
-#login funcionário
-@pessoa.route('/cadastrarFunc.html', methods=['GET','POST'])
-def login():
     if request.method == 'POST':
         this.cpf = request.form['coletarCpf']
         this.nome = request.form['coletarNome']
