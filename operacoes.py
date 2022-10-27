@@ -1,4 +1,8 @@
 from cgitb import html
+from operator import truediv
+from random import random
+from select import select
+from shutil import ExecError
 import mysql.connector
 import conexao
 import this
@@ -81,3 +85,4 @@ def deletar(cpfGerente):
         return "{} deletado!".format(con.rowcount)
     except Exception as erro:
         return erro
+
