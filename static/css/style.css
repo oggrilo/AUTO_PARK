@@ -13,17 +13,13 @@
     height: 300px;
     background: #fff;
 }
- 
 /* --------------------------------------------------- */
 
 .card-title{
     padding-top: 20px; 
     padding-bottom: 20px;
-<<<<<<< HEAD
-=======
     
 
->>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 }
 .card   {
     margin-top: 5%;
@@ -43,17 +39,10 @@
 .navbar {
     background-color: #B9E2FF !important;
 }
-<<<<<<< HEAD
-=======
 .btn-primary, .btn-group, .btn-primary:hover, .btn-primary:active, .btn-primary:visited{
 }
->>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #3475E6 !important;
     border-color:  transparent !important ;
     border-radius: 5px !important;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be
