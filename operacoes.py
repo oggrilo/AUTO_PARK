@@ -93,3 +93,12 @@ def deletar(cpfGerente):
     except Exception as erro:
         return erro
 
+#sorteio
+def sorteio(manha, tarde, noite):
+    try:
+        sql = "update vagas set {} = '{}' where manha, tarde, noite  = '{}'".format(manha, tarde, noite)
+        con.execute(sql)
+        db_connection.commit()
+        return "Atualizado com sucesso!".format(con.rowcount)
+    except Exception as erro:
+        return erro

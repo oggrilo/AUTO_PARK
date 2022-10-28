@@ -11,70 +11,46 @@
     <title>{{titulo}}</title>
 </head>
 <body>
-          <nav class="navbar">
-            <div class="container-fluid">
-              <!--img logo-->
-              <a class="navbar-brand" href="index.html">
-                <img src="static/imgs/bootstrap-logo.svg" href="index.html"  class="rounded-circle" alt="Bootstrap" >
-              </a>
-              <!--Button sorteio-->
-                <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="#" type="button">Sorteio</button>
-              <!--dropdown de cadastro e etc-->
-              <div class="dropdown-center">
-                <button type="button" class="btn btn-primary dropdown-toggle " type="button" data-bs-toggle="dropdown" href="#">
-                  Cadastro
-                </button>
-                <ul class="dropdown-menu dropdown-menu">
-                  <li><a class="dropdown-item " href="cadastrarFunc.html">Cadastrar</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item " href="#">Consultar</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item " href="#">Atualizar</a></li>
-                </ul>
-              </div>
-            </div>
-        </nav>       
-          <!--começo navbar-->
-    <nav class="navbar">
-      <div class="container-fluid">
-        <!--img logo-->
-        <a class="navbar-brand" href="/">
-          <img src="static/imgs/bootstrap-logo.svg" class="rounded-circle" alt="Bootstrap" >
-        </a>
-        <!--Button sorteio-->
-          <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="#" type="button">Sorteio</button>
-        <!--dropdown de cadastro e etc-->
-        <div class="dropdown-center">
-          <button type="button" class="btn btn-primary dropdown-toggle " type="button" data-bs-toggle="dropdown" href="#">
-            Login
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item " href="inicialCliente.html">Inicial Cliente</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item " href="login.html">Login</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item " href="cadastrarGerente.html">Cadastrar Gerente</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item " href="atualizarGerente.html">Atualizar Gerente</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item " href="excluirGerente.html">Excluir Gerente</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item " href="consultarGerente.html">Consultar Gerente</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item " href="atualizarsenha.html">Atualizar senha</a></li>
-            <!-- Dropdown menu links -->
-          </ul>
-          <button type="button" style="background-color: #3475E6; border-color:  transparent;  border-radius: 5px" class="btn btn-secondary">
-            Login
-          </button>
-        </div>
+ <!--começo navbar-->
+ <nav class="navbar">
+  <div class="container-fluid">
+    <!--img logo-->
+    <a class="navbar-brand" href="/">
+      <img src="static/imgs/bootstrap-logo.svg" class="rounded-circle" alt="Bootstrap" >
+    </a>
+    <!--Button sorteio-->
+      <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="sorteio.html" type="button">Sorteio</button>
+    <!--dropdown de cadastro e etc-->
+    <div class="dropdown-center">
+      <div class="btn-group dropstart">
+        <button type="button" style="background-color: #3475E6; border-color:  transparent;  border-radius: 5px"class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropstart</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item " href="inicialCliente.html">Inicial Cliente</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="login.html">Login</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="cadastrarGerente.html">Cadastrar Gerente</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="atualizarGerente.html">Atualizar Gerente</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="excluirGerente.html">Deletar Conta</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="consultarGerente.html">Consultar Gerente</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item " href="trocarSenha.html">Atualizar senha</a></li>
+          <!-- Dropdown menu links -->
+        </ul>
+        <button type="button" style="background-color: #3475E6; border-color:  transparent;  border-radius: 5px" class="btn btn-secondary">
+          Login
+        </button>
       </div>
-<<<<<<< HEAD:templates/cadastrarGerente.html
     </div>
-</nav>     
-=======
+  </div>
+</nav>
+<!--fim da navbar-->
   </nav>
->>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be:templates/cadastrarFunc.html
 
 <div class="container-xl"><!--100% wide until extra large breakpoint-->
 
@@ -113,15 +89,10 @@
       </div>
     </form>
 </div>
-<<<<<<< HEAD:templates/cadastrarGerente.html
-<div style="text-align: center;" style="color: rgb(0, 0, 0);"> <h6>{{ resultado }}</h6><br><br></div>
-<div class="fixed-bottom card text-center">
-=======
 <br><br><br><br><br>
 
 <div class="fixed-bottom card text-center">
 <div class="text-center">
->>>>>>> 43e78f0014332136966cc5ccee6443ab2ce747be:templates/cadastrarFunc.html
   <footer style="background-color: #b9e2ff; text-decoration-color: black;" class="card-body">
     <h5 class="card-title"> Auto Park<br></h5>
     <p style="background-color: #b9e2ff; text-decoration-color: black;" class="card-text"></p>
