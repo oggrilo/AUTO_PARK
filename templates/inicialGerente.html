@@ -16,7 +16,7 @@
           <img src="static/imgs/bootstrap-logo.svg" class="rounded-circle" alt="Bootstrap" >
         </a>
         <!--Button sorteio-->
-          <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="#" type="button">Sorteio</button>
+          <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="sorteio.html" type="button">Sorteio</button>
         <!--dropdown de cadastro e etc-->
         <div class="dropdown-center">
           <div class="btn-group dropstart">
@@ -26,9 +26,17 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item " href="inicialCliente.html">Inicial Cliente</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item " href="login.html">Login teste</a></li>
+              <li><a class="dropdown-item " href="login.html">Login</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item " href="#">Atualizar</a></li>
+              <li><a class="dropdown-item " href="cadastrarGerente.html">Cadastrar Gerente</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item " href="atualizarGerente.html">Atualizar Gerente</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item " href="excluirGerente.html">Deletar Conta</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item " href="consultarGerente.html">Consultar Gerente</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item " href="trocarSenha.html">Atualizar senha</a></li>
               <!-- Dropdown menu links -->
             </ul>
             <button type="button" style="background-color: #3475E6; border-color:  transparent;  border-radius: 5px" class="btn btn-secondary">
@@ -49,8 +57,27 @@
               <h5 class="card-title">Página Inicial Do Gerente</h5>
 
               <p class="card-text"></p>
-
-              <a href="#" class="btn btn-primary text-white">Realizar Sorteio</a>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Realizar Sorteio
+              </button>
+                      <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5 " id="staticBackdropLabel">Sorteio</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        {{ resultado }}"mostrar litas dos Sorteados"
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Realizar Sorteio</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
               <hr>
               <a href="/" class="btn btn-primary text-white">Lista de Sorteados</a>
