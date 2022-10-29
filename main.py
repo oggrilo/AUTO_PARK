@@ -1,6 +1,10 @@
+
 import operacoes
+import operacoesInscricao
+import operações_sorteio
 from flask import Flask, render_template, request, flash, url_for
 import this
+
 
 this.dados = 0
 
@@ -91,6 +95,11 @@ def excluirDados():
 @pessoa.route('/inicialCliente.html', methods=['GET','POST'])
 def inicialCliente():
     return render_template('/inicialCliente.html', titulo='Página Inicial Cliente', resultado=this.dados)
+
+#sorteio
+@pessoa.route('/inicialGernete.html', methods=['GET','POST'])
+def resultado_sorteio():
+    return render_template('/inicialGerente.html', titulo='Resultado do Sorteio', resultado=this.dados)
 
 if __name__ == "__main__":
     pessoa.run(debug=True, port=5003)

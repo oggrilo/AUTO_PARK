@@ -27,9 +27,7 @@
     border-image: url(bootstrap-logo.svg) 30 round;
     border-image: repeating-linear-gradient(30deg, #4d9f0c, #9198e5, #4d9f0c 20px) 60;
 }
-.navbar {
-    background-color: #B9E2FF !important;
-}
+
 .btn-primary, .btn-group, .btn-primary:hover, .btn-primary:active, .btn-primary:visited{
     background-color: #B9E2FF !important;
     border-color:  transparent !important ;
