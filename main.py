@@ -19,8 +19,9 @@ def loginGerente():
         this.msg = operacoes.loginGerente(this.emailGerente, this.senhaGerente)
         if this.msg == "Aprovado": 
             return render_template('/inicialGerente.html', titulo='Login Gerente', resultadoLogin=this.msg)
-    else:
-        return render_template('/login.html', titulo='Login Gerente', resultado=this.msg)
+        if this.msg == "Dados incorretos":        
+            return render_template('/login.html', titulo='Login Gerente', resultadoLogin=this.msg)
+    return render_template('/login.html', titulo='Login Gerente', resultadoLogin=this.msg)
 
 @pessoa.route('/cadastrarInscricao.html', methods=['GET', 'POST'])
 def pag_cadastrarInscricao():
