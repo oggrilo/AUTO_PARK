@@ -18,35 +18,43 @@ def loginGerente():
         this.senhaGerente = request.form['senhaGerente']
         this.msg = operacoes.loginGerente(this.emailGerente, this.senhaGerente)
         if this.msg == "Aprovado": 
-            return render_template('/inicialGerente.html', titulo='Login Gerente', resultado=this.msg)
+            return render_template('/inicialGerente.html', titulo='Login Gerente', resultadoLogin=this.msg)
     else:
         return render_template('/login.html', titulo='Login Gerente', resultado=this.msg)
 
-@pessoa.route('/cadastroFunc.html', methods=['GET', 'POST'])
-def pag_cadastro():
-    return render_template('/cadastroFunc.html', titulo='Página Principal')
+@pessoa.route('/cadastrarInscricao.html', methods=['GET', 'POST'])
+def pag_cadastrarInscricao():
+    return render_template('/cadastrarInscricao.html', titulo='Página Principal')
 
-@pessoa.route('/atualizarsenha.html', methods=['GET', 'POST'])
-def pag_atualizarsenha():
-    return render_template('/atualizarsenha.html', titulo='Página Principal')
+@pessoa.route('/atualizarInscricao.html', methods=['GET', 'POST'])
+def pag_atualizarIncricao():
+    return render_template('/atualizarInscricao.html', titulo='Página Principal')
 
+@pessoa.route('/consultarInscricao.html', methods=['GET', 'POST'])
+def pag_consultarInscricao():
+    return render_template('/consultarInscricao.html', titulo='Página Principal')
 
-@pessoa.route('/inicialGerente.html', methods=['GET', 'POST'])
-def pag_inicialGerente():
-    return render_template('/inicialGerente.html', titulo='Página Principal')
+@pessoa.route('/deletarInscricao.html', methods=['GET', 'POST'])
+def pag_deletarInscricao():
+    return render_template('/deletarInscricao.html', titulo='Página Principal')
+
+@pessoa.route('/atualizarPeriodoInscricao.html', methods=['GET', 'POST'])
+def pag_periodoInscricao():
+    return render_template('/atualizarPeriodoInscricao.html', titulo='Página Principal')
+
 
 #cadastrar Funcionário
 @pessoa.route('/cadastrarGerente.html', methods=['GET','POST'])
 def cadastrarGerente():
     if request.method == 'POST':
-        this.nome = request.form['coletarNome']
         this.cpfGerente = request.form['coletarCpfGerente']
-        this.telefone = request.form['coletarTelefone']
+        this.nome = request.form['coletarNome']
         this.email = request.form['coletarEmail']
+        this.celular = request.form['coletarCelular']
         this.senha = request.form['coletarSenha']
 
         if operacoes.cpf_validate(this.cpfGerente) == True:
-            this.dados = operacoes.cadastrarGerente(this.nome, this.cpfGerente, this.telefone, this.email, this.senha)
+            this.dados = operacoes.cadastrarGerente(this.cpfGerente, this.nome, this.email, this.celular, this.senha)
             return render_template('/cadastrarGerente.html', titulo='Página De Cadastro', resultado=this.dados)
         else:
             this.dados = "ERRO, favor informe um CPF válido!"

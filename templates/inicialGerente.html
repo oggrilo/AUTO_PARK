@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </head>
-  <body style="background-color: #3475E6;">
+  <body style="background-color: white;">
     <!--começo navbar-->
     <nav class="navbar">
       <div class="container-fluid">
@@ -15,8 +15,6 @@
         <a class="navbar-brand" href="/">
           <img src="static/imgs/bootstrap-logo.svg" class="rounded-circle" alt="Bootstrap" >
         </a>
-        <!--Button sorteio-->
-          <button class="btn btn-primary text-nowrap " style="margin-inline-start: auto; margin-right: 1%;" href="sorteio.html" type="button">Sorteio</button>
         <!--dropdown de cadastro e etc-->
         <div class="dropdown-center">
           <div class="btn-group dropstart">
@@ -83,21 +81,32 @@
               <a href="/" class="btn btn-primary text-white">Lista de Sorteados</a>
               <hr>
 
-              <a href="#" class="btn btn-primary text-white">Atualizar Inscrição</a>
+              <a href="atualizarInscricao.html" class="btn btn-primary text-white">Atualizar Inscrição</a>
 
                 <hr>
 
-              <a href="#" class="btn btn-primary text-white">Cadastrar Gerente</a>
+              <a href="cadastrarGerente.html" class="btn btn-primary text-white">Cadastrar Gerente</a>
 
               <hr>
 
-              <a href="#" class="btn btn-primary text-white">Consultar Gerente</a>
+              <a href="consultarGerente.html" class="btn btn-primary text-white">Consultar Gerente</a>
 
             </div>
 
         </div>
 
     </div>
-
+    <div class="text-center">
+      <footer style="background-color: #b9e2ff; text-decoration-color: black;" class="card-body">
+        <h5 class="card-title"> Auto Park<br></h5>
+        <p style="background-color: #b9e2ff; text-decoration-color: black;" class="card-text"></p>
+        <a href="www.facebook.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/facebook.png')}}" style="width: 50px;"></a>
+        <a href="www.instagram.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/instagram.png')}}"style="width: 50px;"></a>
+        <a href="https://www.twitter.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/twitter.png')}}"style="width: 50px;"></a>
+        <a style="padding: 50px;"><img src="{{url_for('static', filename='imgs/whatsapp.png')}}"style="width: 50px;"></a>
+        <a href="mailto:contato.autopark@hotmail.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/gmail.png')}}"style="width: 50px;"></a>
+          <h6><br><br>Todos os direitos reservados © 2022<hr></h6>
+      </footer>
+      </div>  
   </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href="{{url_for('static', filename='css/style.css')}}"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+    <title>{{titulo}}</title>
+</head>
+<body>
+     <!--começo navbar-->
+     <nav class="navbar">
+      <div class="container-fluid">
+        <!--img logo-->
+        <a class="navbar-brand" href="/">
+          <img src="static/imgs/bootstrap-logo.svg" class="rounded-circle" alt="Bootstrap" >
+        </a>
+    
+  </nav>
+  <!--fim da navbar-->
+<br>
+
+        <div class="container-xl"><!--100% wide until extra large breakpoint-->
+<br><br>
+            <!-- form para coletar dado -->
+            <form action="/atualizarInscricao.html" method="POST" class ="row g-3 shadow p-3 mb-5 bg-body rounded" style="width: 40rem; margin-left:23.5%;">
+                <br><br><h3 class="text-center fw-bold text-uppercase" > Atualizar Inscrição </h3><br><br><br>
+                <label> CPF do Inscrito: </label>
+                <input type="number" name="cpfFunc" id="cpfFunc">
+                <!-- label de seleção do campo que deseja atualizar -->
+                <label> Campo: </label>
+                <select name="tCampo">
+                  <option value=""></option>
+                  <option value="nome">Nome</option>
+                </select>
+                <br><br>
+                <label> Novo Dado: </label>
+                <input type="text" name="tNovoDado"/>
+                <br><br>
+                <div class="d-grid gap-2 col-6 mx-auto" >
+                  <a href="/atualizarPeriodoInscricao.html"  style="background-color:rgba(106, 156, 206, 0.678); color:  black;" type="submit" id="buttonCadastrar" class="btn btn-secondary">Atualizar Período</a>
+                </div>
+                <button style="background-color:#b9e2ff; color:  black;" type="submit" id="buttonCadastrar" class="btn btn-primary"> Atualizar </button>
+                <h6 class="text-center text-break">{{resultado}}</h6>
+              </form>
+        </div>
+<br>
+<div class="text-center">
+  <footer style="background-color: #b9e2ff; text-decoration-color: black;" class="card-body">
+    <h5 class="card-title"> AutoPark<br></h5>
+    <p style="background-color: #b9e2ff; text-decoration-color: black;" class="card-text"></p>
+    <a href="www.facebook.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/facebook.png')}}" style="width: 50px;"></a>
+    <a href="www.instagram.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/instagram.png')}}"style="width: 50px;"></a>
+    <a href="https://www.twitter.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/twitter.png')}}"style="width: 50px;"></a>
+    <a style="padding: 50px;"><img src="{{url_for('static', filename='imgs/whatsapp.png')}}"style="width: 50px;"></a>
+    <a href="mailto:contato.autopark@hotmail.com" style="padding: 50px;"><img src="{{url_for('static', filename='imgs/gmail.png')}}"style="width: 50px;"></a>
+     <h6><br><br>Todos os direitos reservados © 2022<hr></h6>
+  </footer>
+  </div> 
+</body>
+</html>
