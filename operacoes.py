@@ -37,9 +37,9 @@ def cpf_validate(numbers):
             return False
     return True
 
-def cadastrarGerente(nome, cpfGerente, telefone, email, senha):
+def cadastrarGerente(cpfGerente, nome, email, celular, senha):
     try:
-        sql = "insert into gerente(nome, cpfGerente, telefone, email, senha) values('{}','{}','{}','{}','{}')".format(nome, cpfGerente, telefone, email, senha)
+        sql = "insert into gerente(cpfGerente, nome, email, celular, senha) values('{}','{}','{}','{}','{}')".format(cpfGerente, nome, email, celular, senha)
         con.execute(sql)#Prepara o comando para ser executado
         db_connection.commit()#Executa o comando no banco de dados
         return con.rowcount, "Cadastrado com sucesso!"
