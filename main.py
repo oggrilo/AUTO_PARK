@@ -1,7 +1,7 @@
-
 import operacoes
 import operacoesInscricao
-import operações_sorteio
+import operacoes_sorteio
+
 from flask import Flask, render_template, request, flash, url_for
 import this
 
@@ -97,9 +97,12 @@ def inicialCliente():
     return render_template('/inicialCliente.html', titulo='Página Inicial Cliente', resultado=this.dados)
 
 #sorteio
-@pessoa.route('/inicialGernete.html', methods=['GET','POST'])
-def resultado_sorteio():
-    return render_template('/inicialGerente.html', titulo='Resultado do Sorteio', resultado=this.dados)
+
+
+#pag do sorteio
+
+
+
 
 if __name__ == "__main__":
     pessoa.run(debug=True, port=5003)

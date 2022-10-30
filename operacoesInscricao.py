@@ -29,6 +29,7 @@ def inserirInsc(cpfFunc, nome, manha, tarde, noite):
             return "Por favor, selecione um Período a ser cadastrado."
         else:
             return "Cadastrado com sucesso!"
+            
     except Exception as erro:
         return erro
 
@@ -43,7 +44,7 @@ def selecionar_insc(cpfFunc):
         for (codigo, cpfFunc, nome, manha, tarde, noite) in con:
             if cpfFunc == cpfFunc:
                 this.msg = "Código: {}, CPF: {}, Nome: {}, Manhã: {}, Tarde: {}, Noite: {}".format(codigo, cpfFunc, nome, manha, tarde, noite)
-            return this.msg
+            return this.msg 
         if cpfFunc =="" or cpfFunc != '{}':
             return "Por favor, digite um CPF cadastrado."
         else:
