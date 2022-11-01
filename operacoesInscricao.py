@@ -16,9 +16,9 @@ con = db_connection.cursor()
 
 
 #Cadastrar Dados
-def inserirInsc(cpfFunc, nome, manha, tarde, noite):
+def inserirInsc(codigo, cpfFunc, nome, manha, tarde, noite):
     try:
-        sql = "insert into inscricao(codigo, cpfFunc, nome, manha, tarde, noite) values('', '{}','{}','{}','{}','{}')".format(cpfFunc, nome, manha, tarde, noite)
+        sql = "insert into inscricao(cpfFunc, nome, manha, tarde, noite) values('', '{}','{}','{}','{}','{}')".format(codigo, cpfFunc, nome, manha, tarde, noite)
         con.execute(sql)#Prepara o comando para ser executado
         db_connection.commit()#Executa o comando no banco de dados
         if cpfFunc =="":

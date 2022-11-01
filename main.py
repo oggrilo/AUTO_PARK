@@ -29,24 +29,15 @@ def loginGerente():
 
 @pessoa.route('/cadastrarInscricao.html', methods=['GET', 'POST'])
 def pag_cadastrarInscricao():
-    return render_template('/cadastrarInscricao.html', titulo='Página Principal')
-
-@pessoa.route('/atualizarInscricao.html', methods=['GET', 'POST'])
-def pag_atualizarIncricao():
-    return render_template('/atualizarInscricao.html', titulo='Página Principal')
-
-@pessoa.route('/consultarInscricao.html', methods=['GET', 'POST'])
-def pag_consultarInscricao():
-    return render_template('/consultarInscricao.html', titulo='Página Principal')
-
-@pessoa.route('/deletarInscricao.html', methods=['GET', 'POST'])
-def pag_deletarInscricao():
-    return render_template('/deletarInscricao.html', titulo='Página Principal')
-
-@pessoa.route('/atualizarPeriodoInscricao.html', methods=['GET', 'POST'])
-def pag_periodoInscricao():
-    return render_template('/atualizarPeriodoInscricao.html', titulo='Página Principal')
-
+    if request.method == 'POST':
+        this.cpfFunc = request.form['coletarCPF']
+        this.nome = request.form['coletarNome']
+        this.manha = request.form['coletarManha']
+        this.tarde = request.form['coletarTarde']
+        this.noite = request.form['coletarNoite']
+        this.dados = operacoesInscricao.inserirInsc( this.cpfFunc, this.nome, this.manha, this.tarde , this.noite)
+            
+    return render_template('/cadastrarInscricao.html', titulo='Página De Cadastro', resultado=this.dados)
 
 #cadastrar Funcionário
 @pessoa.route('/cadastrarGerente.html', methods=['GET','POST'])
@@ -96,11 +87,111 @@ def excluirDados():
 def inicialCliente():
     return render_template('/inicialCliente.html', titulo='Página Inicial Cliente', resultado=this.dados)
 
+
+
+
+#cadastrar Inscrição
+this.cpfFunc = ""
+this.nomeFunc = ""
+this.manha = 1
+this.tarde = 1
+this.noite = 1
+this.dados = ""
+this.mensagem = ""
+this.nDado = ""
+this.nDadoCheckbox = ""
+
+
+@pessoa.route('/cadastrarInscricao.html', methods=['GET', 'POST'])
+def inserirInsc():
+    if request.method == 'POST':
+        if request.form['coletarCPF'] == "" or request.form['coletarNome'] == "":
+            this.dados = "Preencha o campo de CPF e Nome, por favor!"
+        else:
+            this.cpfFunc    = request.form['coletarCPF']
+            this.nomeFunc  = request.form['coletarNome']
+            try:
+                this.manha = request.form['coletarManha']
+                this.manha = 0
+            except: 
+                this.manha = 1
+
+            try:
+                this.tarde = request.form['coletarTarde']
+                this.tarde = 0
+            except: 
+                this.tarde = 1
+
+            try:
+                this.noite = request.form['coletarNoite']
+                this.noite = 0
+            except: 
+                this.noite = 1
+
+            this.dados = operacoesInscricao.inserirInsc(this.cpfFunc, this.nomeFunc, this.manha, this.tarde, this.noite)
+    return render_template('/cadastrarInscricao.html', titulo='Cadastrar Inscricao', resultado = this.dados)
+
+#consultar Inscrição por CPF
+@pessoa.route('/consultarInscricao.html', methods=['GET', 'POST'])
+def selecionar_insc():
+    if request.method == 'POST':
+        this.cpfFunc = request.form['coletarCPF']
+        this.mensagem = operacoesInscricao.selecionar_insc(this.cpfFunc)
+    else:
+        this.mensagem = ""
+    return render_template('/consultarInscricao.html', titulo='Página De Consulta Dos Funcionários', dados=this.mensagem)
+
+
+#Atualizar Inscrição por CPF
+@pessoa.route('/atualizarInscricao.html', methods=['GET','POST'])
+def atualizar():
+    if request.method == 'POST':
+        this.cpfFunc = request.form['cpfFunc']
+        this.campo = request.form['tCampo']
+        this.nDado  = request.form['tNovoDado']
+        this.dados = operacoesInscricao.atualizar(this.cpfFunc, this.campo, this.nDado)
+    return render_template('/atualizarInscricao.html', titulo='Atualizar', resultado=this.dados)
+
+@pessoa.route('/atualizarPeriodoInscricao.html', methods=['GET','POST'])
+def atualizarPeriodo():
+    if request.method == 'POST':
+        this.cpfFunc = request.form['cpfFunc']
+        try:
+            this.nManha = request.form['tNovaManha']
+            this.nManha = 0
+        except: 
+            this.nManha = 1
+
+        try:
+            this.nTarde = request.form['tNovaTarde']
+            this.nTarde = 0
+        except: 
+            this.nTarde = 1
+
+        try:
+            this.nNoite = request.form['tNovaNoite']
+            this.nNoite = 0
+        except: 
+            this.nNoite = 1
+        this.dados = operacoesInscricao.atualizarPeriodo(this.cpfFunc, this.nManha, this.nTarde, this.nNoite)
+    return render_template('/atualizarPeriodoInscricao.html', titulo='Atualizar', resultado=this.dados)
+
+#Deletar Inscrição pelo CPF
+@pessoa.route('/deletarInscricao.html', methods=['GET', 'POST'])
+def deletar():
+    if request.method == 'POST':
+        this.cpfFunc = request.form['cpfFunc']
+        this.dados = operacoesInscricao.deletar(this.cpfFunc)
+    return render_template('/deletarInscricao.html', titulo='Excluir', resultado=this.dados)
+
+
+
 #sorteio
 
+@pessoa.route('/pag_sorteio.html', methods=['GET', 'POST'])
+def selecionar_sorteio():
 
-#pag do sorteio
-
+    return render_template('/pag_sorteio.html', titulo='Sortear', resultadoSorteio=this.dados)
 
 
 
