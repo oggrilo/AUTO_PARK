@@ -69,6 +69,15 @@ def atualizarGerente(cpfGerente, campo, novoDado):
     except Exception as erro:
         return erro
 
+def atualizarSenha(email, campo, novoDado):
+    try:
+        sql = "update gerente set {} = '{}' where email = '{}'".format(campo, novoDado, email)
+        con.execute(sql)
+        db_connection.commit()
+        return "Atualizado com sucesso!".format(con.rowcount)
+    except Exception as erro:
+        return erro
+        
 def consultar(cpfGerente):
     try:
         sql = "select * from gerente where cpfGerente = '{}'".format(cpfGerente)

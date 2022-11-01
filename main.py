@@ -195,5 +195,15 @@ def selecionar_sorteio():
 
 
 
+
+@pessoa.route('/atualizarSenha.html', methods=['GET','POST'])
+def atualizarSen():
+    if request.method == 'POST':
+        this.email = request.form['tEmail']
+        this.campo  = request.form['tCampo']
+        this.nDado  = request.form['tNovoDado']
+        this.dados = operacoes.atualizarSenha(this.email, this.campo, this.nDado)
+    return render_template('/atualizarSenha.html', titulo='Atualizar', resultado=this.dados)
+
 if __name__ == "__main__":
     pessoa.run(debug=True, port=5003)
