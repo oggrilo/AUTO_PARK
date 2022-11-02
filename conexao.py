@@ -1,9 +1,10 @@
 import mysql.connector
 from mysql.connector import errorcode
 
+cnx = mysql.connector.connect(user="hgzzfmmzup", password="{}", host="autopark-server.mysql.database.azure.com", port=3306, database="{AutoPark}", ssl_ca="{ca-cert filename}", ssl_disabled=False)
 config = {
-    'host':'AutoPark.autopark.azurewebsites.net',
-    'user':'root',
+    'host':'autopark-server.mysql.database.azure.com',
+    'user':'hgzzfmmzup',
     'password':'',
     'database':'AutoPark'
 }
