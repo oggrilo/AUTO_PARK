@@ -1,17 +1,12 @@
 import mysql.connector
 from mysql.connector import errorcode
 
-cnx = mysql.connector.connect(user="hgzzfmmzup", password="{}", host="autopark-server.mysql.database.azure.com", port=3306, database="{AutoPark}", ssl_ca="{ca-cert filename}", ssl_disabled=False)
-config = {
-    'host':'autopark-server.mysql.database.azure.com',
-    'user':'hgzzfmmzup',
-    'password':'',
-    'database':'AutoPark'
-}
-
 def conectar():
     try:
-        db_connection = mysql.connector.connect(**config)
+        db_connection = mysql.connector.connect(host='localhost',
+                                                user='root',
+                                                password='',
+                                                database='AutoPark')
         print('Conectado com sucesso!')
         return db_connection
     except mysql.connector.Error as error: #Salvando o erro na variável error

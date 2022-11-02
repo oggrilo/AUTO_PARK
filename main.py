@@ -27,18 +27,6 @@ def loginGerente():
             return render_template('/login.html', titulo='Login Gerente', resultadoLogin=this.msg)
     return render_template('/login.html', titulo='Login Gerente', resultadoLogin=this.msg)
 
-@pessoa.route('/cadastrarInscricao.html', methods=['GET', 'POST'])
-def pag_cadastrarInscricao():
-    if request.method == 'POST':
-        this.cpfFunc = request.form['coletarCPF']
-        this.nome = request.form['coletarNome']
-        this.manha = request.form['coletarManha']
-        this.tarde = request.form['coletarTarde']
-        this.noite = request.form['coletarNoite']
-        this.dados = operacoesInscricao.inserirInsc( this.cpfFunc, this.nome, this.manha, this.tarde , this.noite)
-            
-    return render_template('/cadastrarInscricao.html', titulo='Página De Cadastro', resultado=this.dados)
-
 #cadastrar Funcionário
 @pessoa.route('/cadastrarGerente.html', methods=['GET','POST'])
 def cadastrarGerente():
@@ -108,7 +96,7 @@ def inserirInsc():
         if request.form['coletarCPF'] == "" or request.form['coletarNome'] == "":
             this.dados = "Preencha o campo de CPF e Nome, por favor!"
         else:
-            this.cpfFunc    = request.form['coletarCPF']
+            this.cpfFunc   = request.form['coletarCPF']
             this.nomeFunc  = request.form['coletarNome']
             try:
                 this.manha = request.form['coletarManha']
@@ -187,23 +175,12 @@ def deletar():
 
 
 #sorteio
-
 @pessoa.route('/pag_sorteio.html', methods=['GET', 'POST'])
-def selecionar_sorteio():
-
+def sorteioUM():
+    if request.method == 'GET':
+        this.dados = operacoesInscricao.sorteioUM() 
     return render_template('/pag_sorteio.html', titulo='Sortear', resultadoSorteio=this.dados)
 
 
-
-
-@pessoa.route('/atualizarSenha.html', methods=['GET','POST'])
-def atualizarSen():
-    if request.method == 'POST':
-        this.email = request.form['tEmail']
-        this.campo  = request.form['tCampo']
-        this.nDado  = request.form['tNovoDado']
-        this.dados = operacoes.atualizarSenha(this.email, this.campo, this.nDado)
-    return render_template('/atualizarSenha.html', titulo='Atualizar', resultado=this.dados)
-
 if __name__ == "__main__":
-    pessoa.run(debug=True, port=5003)
+    pessoa.run(debug=True, port=5000)

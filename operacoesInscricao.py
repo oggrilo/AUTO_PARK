@@ -91,3 +91,33 @@ def deletar(cpfFunc):
             return "{} deletado!".format(con.rowcount)
     except Exception as erro:
         return erro
+
+#---------------Sorteio----------------
+this.vetorCodigo = []
+this.vetorNome = []
+this.vetorCPF = []
+this.vetorManha = []
+this.vetorTarde = []
+this.vetorNoite = []
+
+def selecionar_sorteio():
+    try:
+        sql = "select * from inscricao"
+        con.execute(sql)
+
+        this.vetorCodigo = []
+        this.vetorNome = []
+        this.vetorCPF = []
+        this.vetorManha = []
+        this.vetorTarde = []
+        this.vetorNoite = []
+        
+        for (codigo, cpfFunc, nome, manha, tarde, noite) in con:
+            this.vetorCodigo.append(codigo)
+            this.vetorCPF.append(cpfFunc)
+            this.vetorNome.append(nome)
+            this.vetorManha.append(manha)
+            this.vetorTarde.append(tarde)
+            this.vetorNoite.append(noite)
+    except Exception as erro:
+        return erro
