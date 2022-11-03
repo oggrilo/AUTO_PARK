@@ -3,11 +3,10 @@ from mysql.connector import errorcode
 
 def conectar():
     try:
-        db_connection = mysql.connector.connect(user='oykrqnqbhm',
-                                                password='O7ISXB3V4OUHUM2F$',
-                                                database='AutoPark',
-                                                host='https://autopark.azurewebsites.net',
-                                                ssl_ca='/var/www/html/DigiCertGlobalRootCA.crt.pem')
+        db_connection = mysql.connector.connect(host='localhost',
+                                                user='root',
+                                                password='',
+                                                database='AutoPark')
         print('Conectado com sucesso!')
         return db_connection
     except mysql.connector.Error as error: #Salvando o erro na variável error
