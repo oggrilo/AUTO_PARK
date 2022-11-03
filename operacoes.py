@@ -65,9 +65,21 @@ def atualizarGerente(cpfGerente, campo, novoDado):
         sql = "update gerente set {} = '{}' where cpfGerente = '{}'".format(campo, novoDado, cpfGerente)
         con.execute(sql)
         db_connection.commit()
-        return "Atualizado com sucesso!".format(con.rowcount)
+        if cpfGerente == "" or novoDado == "":
+            return "Por favor, digite um CPF cadastrado."
+        else:
+            return "{} Atualizado!".format(con.rowcount)
     except Exception as erro:
         return erro
+    #cod gabriel#try:
+        # #sql = "update gerente set {} = '{}' where cpfGerente = '{}'".format(campo, novoDado, cpfGerente)
+        # con.execute(sql)
+        # db_connection.commit()
+        # return "Atualizado com sucesso!".format(con.rowcount)
+    #except Exception as erro:
+        #return erro
+        # def atualizarGerente(cpfGerente, campo, novoDado):#
+    
 
 def atualizarSenha(email, campo, novoDado):
     try:
